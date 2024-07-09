@@ -5,7 +5,14 @@ import Loading from './Loading';
 
 function Details() {
 
-  const[product, setProduct]=useState(null);
+  const[product, setProduct]=useState({
+    id: 0,
+    title: '',
+    price: 0,
+    description: '',
+    category: '',
+    image: ''
+  });
 
   const {id} = useParams();
 
