@@ -4,7 +4,7 @@ import Nav from './Nav'
 import {ProductContext,ProductContextType, ProductType} from '../Utils/Context'
 import { useContext, useEffect, useState } from 'react'
 import Loading from './Loading';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import axios from 'axios';
 
 function Home() {
