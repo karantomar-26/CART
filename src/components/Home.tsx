@@ -1,7 +1,7 @@
 
 import Card from './Card'
 import Nav from './Nav'
-import {ProductContext,ProductContextType, ProductType} from '../Utils/Context'
+import {ProductContext, ProductType} from '../Utils/Context'
 import { useContext, useEffect, useState } from 'react'
 import Loading from './Loading';
 import { useLocation} from 'react-router-dom';
