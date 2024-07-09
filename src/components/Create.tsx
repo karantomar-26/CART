@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import {ProductContext, Product} from "../Utils/Context";
+import {ProductContext, ProductType} from "../Utils/Context";
 import { nanoid } from "nanoid";
 import { toast } from 'react-toastify';
 
 function Create() {
 
-    const {products, setProducts} = useContext(ProductContext);
+    const {products, setProducts} = useContext(ProductContext)!;
 
     const [title, settitle] = useState("");
     const [image, setimage] = useState("");
@@ -26,12 +26,17 @@ function Create() {
             toast.error("Please fill in all fields correctly!")
             return;
         }
-        const product =
-        {id:nanoid(),title, image, category, price, description};
+        const product : ProductType=
+        {id:Date.now() ,title, image, category, price: parseFloat(price), description};
         console.log(product);
 
-        await setProducts([...products, products]);
+        if (products) {
+            setProducts([...products, product]);
+        } else {
+            setProducts([product]);
+        }
         toast.success("Product Added!");
+        
     }
 
     return (
