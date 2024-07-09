@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ProductContext } from '../Utils/Context'
 import { Link } from 'react-router-dom';
 
 function Nav() {
-  const {products}= useContext(ProductContext);
+  const {products}= useContext(ProductContext)!;
 
   const distinct_category =[...new Set(products && products.map(cv => cv.category))];
 
