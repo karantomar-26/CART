@@ -1,22 +1,25 @@
 import axios from './Axios';
 import { createContext, useEffect, useState, ReactNode } from 'react';
 
-export interface Product {
-  id: number;
-  name: string;
+export type ProductType = {
+  id: number ;
+  title: string;
   price: number;
+  description: string;
+  category: string;
+  image: string;
 
 }
 
 export interface ProductContextType {
-  products: Product[] | null;
-  setProducts: React.Dispatch<React.SetStateAction<Product[] | null>>;
+  products: ProductType[] | null;
+  setProducts: React.Dispatch<React.SetStateAction<ProductType[] | null>>;
 }
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
 const ProductProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<Product[] | null>(null);
+  const [products, setProducts] = useState<ProductType[] | null>(null);
 
   const getProducts = async () => {
     try {
